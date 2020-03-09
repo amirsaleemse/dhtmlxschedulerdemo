@@ -11,6 +11,7 @@ namespace scheduledemo.Models
         public string text { get; set; }
         public string start_date { get; set; }
         public string end_date { get; set; }
+        public string course { get; set; }
 
         public static explicit operator WebAPIEvent(SchedulerEvent ev)
         {
@@ -19,7 +20,8 @@ namespace scheduledemo.Models
                 id = ev.Id,
                 text = ev.Name,
                 start_date = ev.StartDate.ToString("yyyy-MM-dd HH:mm"),
-                end_date = ev.EndDate.ToString("yyyy-MM-dd HH:mm")
+                end_date = ev.EndDate.ToString("yyyy-MM-dd HH:mm"),
+                course = ev.Course
             };
         }
 
@@ -30,7 +32,8 @@ namespace scheduledemo.Models
                 Id = ev.id,
                 Name = ev.text,
                 StartDate = DateTime.Parse(ev.start_date, System.Globalization.CultureInfo.InvariantCulture),
-                EndDate = DateTime.Parse(ev.end_date, System.Globalization.CultureInfo.InvariantCulture)
+                EndDate = DateTime.Parse(ev.end_date, System.Globalization.CultureInfo.InvariantCulture),
+                Course = ev.course
             };
         }
     }
